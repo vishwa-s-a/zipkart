@@ -98,6 +98,11 @@ if(!isset($_SESSION['user_email'])  && !isset($_SESSION['username']))
                         </a>
                     </li>
                     <li class="nav-item bg-secondary text-light ">
+                        <a class="nav-link" href="profile.php?change_password">
+                            <h6>Change Password</h6>
+                        </a>
+                    </li>
+                    <li class="nav-item bg-secondary text-light ">
                         <a class="nav-link" href="profile.php?my_orders">
                             <h6>My orders</h6>
                         </a>
@@ -130,6 +135,10 @@ if(!isset($_SESSION['user_email'])  && !isset($_SESSION['username']))
                 if(isset($_GET['delete_account']))
                 {
                     include('delete_account.php');
+                }
+                if(isset($_GET['change_password']))
+                {
+                    include('change_password.php');
                 }
                 ?>
             </div>
