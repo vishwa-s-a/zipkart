@@ -68,7 +68,7 @@ if(!isset($_SESSION['user_email'])  && !isset($_SESSION['username']))
 
         <div class="row px-2 ">
             <div class="col-md-2  p-0 ">
-                <ul class="navbar-nav text-center bg-secondary" style="height:100vh">
+                <ul class="navbar-nav text-center bg-secondary">
                     <li class="nav-item bg-primary text-light ">
                         <a class="nav-link" href="profile.php">
                             <h4>Your profile</h4>

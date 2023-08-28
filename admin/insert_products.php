@@ -1,4 +1,5 @@
 <?php
+session_start();
 //logic to check whether the admin is logged in or not to give him access of the admin dashboard
 if(!isset($_SESSION['admin_name'])  && !isset($_SESSION['admin_email']))
 {
