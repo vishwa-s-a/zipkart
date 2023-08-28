@@ -134,12 +134,12 @@ if (isset($_POST['user_register'])) {
 
 
     //to check whether the entered user name is available or not
-    $check_query = "select * from `user_table` where user_email='$user_email'";
+    $check_query = "select * from `user_table` where user_email='$user_email' or user_mobile='$user_contact'";
     $check_result = mysqli_query($con, $check_query);
 
     $check_num_rows = mysqli_num_rows($check_result);
     if ($check_num_rows > 0) {
-        echo "<script>alert('Entered email already exists, give different email')</script>";
+        echo "<script>alert('Entered contact details already exists, give different email or contact number')</script>";
 
     } elseif ($user_password != $conf_user_password) {
         echo "<script>alert('confirm password did not match')</script>";

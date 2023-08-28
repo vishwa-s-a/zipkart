@@ -22,6 +22,15 @@ if(!isset($_SESSION['user_email'])  && !isset($_SESSION['username']))
 $email=$_SESSION['user_email'];
 if(isset($_POST['delete']))
 {
+    $user_query = "select * from `user_table` where user_email='$email'";
+    $user_query_result = mysqli_query($con, $user_query);
+    $user_data = mysqli_fetch_assoc($user_query_result);
+    $user_image = $user_data['user_image'];
+
+    //now to delete the old image of user
+    $filepath = "user_images/$user_image";
+    unlink($filepath); //this function will delete the previous file
+
     $delete_query="delete from `user_table` where user_email='$email'";
     $delete_result=mysqli_query($con,$delete_query);
     if($delete_result)
