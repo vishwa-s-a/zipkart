@@ -28,12 +28,33 @@ if (!isset($_SESSION['admin_name']) && !isset($_SESSION['admin_email'])) {
                 $id = $data['admin_id'];
                 $name = $data['admin_name'];
                 $mail = $data['admin_email'];
+
+                $modal_name='exampleModal'.$id;
+                $target_modal='#'.$modal_name;
+
                 echo "<tr>
                 <td>$number</td>
                 <td>$name</td>
                 <td>$mail</td>
-                <td><a href='index.php?delete_admin=$id' type='button' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-solid fa-trash'></i></a></td>
-                </tr>";
+                <td><a href='index.php?delete_admin=$id' type='button' data-bs-toggle='modal' data-bs-target=$target_modal><i class='fa-solid fa-trash'></i></a></td>
+                </tr>
+                <!-- Modal  -->
+                <div class='modal fade' id=$modal_name tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel'
+                    aria-hidden='true'>
+                    <div class='modal-dialog' role='document'>
+                        <div class='modal-content'>
+                            <div class='modal-body'>
+                             <h6>Are you sure you want to delete this admin?</h6>
+                            </div>
+                            <div class='modal-footer'>
+                            <button type='button' class='btn btn-secondary' data-dismiss='modal'><a href='index.php?view_admin'
+                             class='text-light text-decoration-none'>No</a></button>
+                            <button type='button' class='btn btn-primary'><a href='index.php?delete_admin=$id'
+                            class='text-light text-decoration-none'>Yes</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
                 $number++;
 
             }
@@ -43,7 +64,7 @@ if (!isset($_SESSION['admin_name']) && !isset($_SESSION['admin_email'])) {
     </table>
 </div>
 
-<!-- Modal  -->
+<!-- Modal 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -59,4 +80,4 @@ if (!isset($_SESSION['admin_name']) && !isset($_SESSION['admin_email'])) {
             </div>
         </div>
     </div>
-</div>
+</div> -->

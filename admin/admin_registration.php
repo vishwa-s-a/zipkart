@@ -58,7 +58,6 @@ if (!isset($_SESSION['admin_name']) && !isset($_SESSION['admin_email'])) {
                     </div>
                     <div class="form-outline mb-3">
                         <input type="submit" class="btn btn-primary" value="Register" name="admin_register">
-                        <p class="small fw-bold pt-2">Already have an account? <a href="admin_login.php" class="link-danger"> Login</a></p>
                     </div>
                 </form>
             </div>
