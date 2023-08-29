@@ -1,6 +1,15 @@
 <?php
 include('../includes/connect.php');
 include('../functions/common_function.php');
+session_start();
+?>
+
+<?php
+//logic to check whether the admin is logged in or not to give him access of the admin dashboard
+if (!isset($_SESSION['admin_name']) && !isset($_SESSION['admin_email'])) {
+    echo "<script>window.open('admin_login.php','_self')</script>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +70,6 @@ include('../functions/common_function.php');
 <?php
 if(isset($_POST['admin_register']))
 {
-    session_start();
     $name=$_POST['username'];
     $mail=$_POST['email'];
     $password=$_POST['password'];
@@ -87,10 +95,8 @@ if(isset($_POST['admin_register']))
         $insert_query = "insert into `admin_table` (admin_name,admin_email,admin_password) values ('$name','$mail','$hash_password')";
         $insert_result = mysqli_query($con, $insert_query);
         if ($insert_result) {
-            $_SESSION['admin_email'] = $mail;
-            $_SESSION['admin_name'] = $name;
             echo "<script>alert('Admin registered successfully')</script>";
-            echo "<script>window.open('index.php','_self')</script>";
+            echo "<script>window.open('index.php?view_admin','_self')</script>";
         } else {
             die(mysqli_error($con));
         }

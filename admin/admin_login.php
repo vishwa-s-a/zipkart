@@ -42,7 +42,6 @@ include('../functions/common_function.php');
                     
                     <div class="form-outline mb-3">
                         <input type="submit" class="btn btn-primary" value="Login" name="admin_login">
-                        <p class="small fw-bold pt-2">Don't have an account? <a href="admin_registration.php" class="link-danger"> Register</a></p>
                     </div>
                 </form>
             </div>

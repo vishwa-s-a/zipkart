@@ -7,8 +7,7 @@ session_start();
 
 <?php
 //logic to check whether the admin is logged in or not to give him access of the admin dashboard
-if(!isset($_SESSION['admin_name'])  && !isset($_SESSION['admin_email']))
-{
+if (!isset($_SESSION['admin_name']) && !isset($_SESSION['admin_email'])) {
     echo "<script>window.open('admin_login.php','_self')</script>";
 }
 
@@ -53,19 +52,18 @@ if(!isset($_SESSION['admin_name'])  && !isset($_SESSION['admin_email']))
                 <img src="images/zipkart-logo.png" class="logo" alt="logo">
                 <nav class="navbar navbar-expand-lg ">
                     <ul class="navbar-nav ">
-                        <?php
-                        $name=$_SESSION['admin_name'];
-                        if (!isset($_SESSION['admin_name'])) {
-                            echo " <li class='nav-item'>
-                                <a class='nav-link text-light' href='#'>Welcome admin</a>
-                                </li>";
-                        } else {
-                            echo " <li class='nav-item'>
-                                    <a class='nav-link text-light' href='#'>Welcome $name</a>
-                                </li>";
-                        }
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <?php $name = $_SESSION['admin_name'];echo "Welcome $name";?>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="admin_registration.php">Add Admin</a></li>
+                                <li><a class="dropdown-item" href="index.php?view_admin">View Admins </a></li>
+                                <li><a class="dropdown-item" href="index.php?change_password">Change Password </a></li>
+                            </ul>
+                        </div>
 
-                        ?>
                     </ul>
                 </nav>
             </div>
@@ -101,7 +99,8 @@ if(!isset($_SESSION['admin_name'])  && !isset($_SESSION['admin_email']))
                             Payments</a></button>
                     <button class="btn btn-primary"><a href="index.php?view_users" class="nav-link ">View
                             Users</a></button>
-                    <button class="btn btn-primary my-3"><a href="admin_logout.php" class="nav-link ">Logout</a></button>
+                    <button class="btn btn-primary my-3"><a href="admin_logout.php"
+                            class="nav-link ">Logout</a></button>
                 </div>
             </div>
         </div>
@@ -161,6 +160,15 @@ if(!isset($_SESSION['admin_name'])  && !isset($_SESSION['admin_email']))
             }
             if (isset($_GET['delete_user'])) {
                 include('delete_user.php');
+            }
+            if (isset($_GET['view_admin'])) {
+                include('view_admin.php');
+            }
+            if (isset($_GET['delete_admin'])) {
+                include('delete_admin.php');
+            }
+            if (isset($_GET['change_password'])) {
+                include('change_password.php');
             }
             ?>
 
