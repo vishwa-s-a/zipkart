@@ -186,6 +186,9 @@ if(isset($_POST['insert_product']))
             </div>
 
         </form>
+        <div class="text-center m-3">
+            <a role="button" class="btn btn-primary " href="index.php">Admin Panel</a>
+        </div>
     </div>
 
 

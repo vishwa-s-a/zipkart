@@ -40,13 +40,31 @@ if (!isset($_SESSION['admin_name']) && !isset($_SESSION['admin_email'])) {
         body {
             overflow-x: hidden;
         }
+
+        body, html {
+            height: 100%;
+        }
+
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .footer {
+            flex-shrink: 0;
+        }
     </style>
 
 </head>
 
 <body>
     <!-- navbar -->
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0 page-container">
         <nav class="navbar navbar-expand-lg navbar-light bg-primary">
             <div class="container-fluid ">
                 <img src="images/zipkart-logo.png" class="logo" alt="logo">
@@ -107,7 +125,7 @@ if (!isset($_SESSION['admin_name']) && !isset($_SESSION['admin_email'])) {
 
         <!-- fourth child -->
         <!-- this is mainly for loading the insert_categories file here -->
-        <div class="container my-4">
+        <div class="container my-4 content">
             <?php
             if (isset($_GET['insert_categories'])) {
                 include('insert_categories.php');
@@ -175,7 +193,7 @@ if (!isset($_SESSION['admin_name']) && !isset($_SESSION['admin_email'])) {
         </div>
 
         <!-- footer section -->
-        <div class="bg-primary p-2 text-center text-light  ">
+        <div class="bg-primary p-2 text-center text-light footer ">
             <div class="row">
                 <div class="col-md-3">
 
