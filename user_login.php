@@ -62,7 +62,6 @@
 <?php
 if(isset($_POST['user_login']))
 {
-    session_start();
 
     $user_email=$_POST['user_email'];
     $user_password=$_POST['user_password'];
@@ -70,7 +69,7 @@ if(isset($_POST['user_login']))
     $user_ip=getIPAddress();
 
     //now to check whether user email exists or not
-    $mail_query="select * from user_table where user_email='$user_email'";
+    $mail_query="select * from `user_table` where user_email='$user_email'";
     $mail_result=mysqli_query($con,$mail_query);
     $mail_rows=mysqli_num_rows($mail_result);
     $row_data=mysqli_fetch_assoc($mail_result);

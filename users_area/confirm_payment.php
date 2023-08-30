@@ -1,15 +1,14 @@
+
 <?php
+include('includes/connect.php');
+include('../functions/common_function.php');
+session_start();
+
 //logic to check whether the user is logged in or not to give him access of this page
 if(!isset($_SESSION['user_email'])  && !isset($_SESSION['username']))
 {
     echo "<script>window.open('user_login.php','_self')</script>";
 }
-
-?>
-<?php
-include('includes/connect.php');
-include('../functions/common_function.php');
-session_start();
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);

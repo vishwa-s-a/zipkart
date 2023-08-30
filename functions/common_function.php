@@ -316,10 +316,11 @@ function cart(){
        else{
 
             $insert_query="insert into `cart_details` (product_id,ip_address,quantity) values ($get_product_id,'$get_ip_add',1) ";
-            $result_query=mysqli_query($con,$insert_query);
+            $insert_query_result=mysqli_query($con,$insert_query);
+            if($insert_query_result){
             echo "<script>alert('This item is added to cart')</script>";
             echo "<script>window.open('index.php','_self')</script>";
-
+            }
 
        }
     }

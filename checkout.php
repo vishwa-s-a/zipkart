@@ -8,14 +8,6 @@ ini_set('display_errors', 1);
 
 ?>
 
-<?php
-//logic to check whether the user is logged in or not to give him access of this page
-if(!isset($_SESSION['user_email'])  && !isset($_SESSION['username']))
-{
-    echo "<script>window.open('index.php','_self')</script>";
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
