@@ -78,7 +78,7 @@ if (!isset($_SESSION['admin_name']) && !isset($_SESSION['admin_email'])) {
             <div class="col-md-12 bg-secondary p-1 d-flex align-items-center">
                 <div class="px-2 ">
                     <a href="#"><img src="images/admin.png" class="profile " alt="admin images"></a>
-                    <p class="text-center text-light">Admin name</p>
+                    <p class="text-center text-light"><?php $name = $_SESSION['admin_name'];echo "$name";?></p>
                 </div>
                 <div class="text-center">
                     <button class="btn btn-primary my-3"><a href="index.php?view_products" class="nav-link ">View
